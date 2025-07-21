@@ -1,4 +1,4 @@
-<!-- devagyabudhiraja.com: Aesthetic Portfolio Starter -->
+<!-- devagyabudhiraja.com: Aesthetic Portfolio with Dark Mode -->
 <!-- Tech: HTML, TailwindCSS, JS, Three.js -->
 
 <!DOCTYPE html>
@@ -13,17 +13,18 @@
     canvas { position: fixed; top: 0; left: 0; z-index: -1; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body id="body" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-white shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between">
+  <nav class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-xl font-bold">Devagya</div>
-      <div class="space-x-6">
+      <div class="space-x-6 flex items-center">
         <a href="#about" class="hover:text-blue-500">About</a>
         <a href="#projects" class="hover:text-blue-500">Projects</a>
         <a href="#resume" class="hover:text-blue-500">Resume</a>
         <a href="#contact" class="hover:text-blue-500">Contact</a>
+        <button onclick="toggleDarkMode()" class="text-sm px-3 py-1 rounded bg-gray-200 dark:bg-gray-700 dark:text-white">Toggle Mode</button>
       </div>
     </div>
   </nav>
@@ -41,20 +42,18 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="bg-gray-100 py-16 px-6">
+  <section id="projects" class="bg-gray-100 dark:bg-gray-800 py-16 px-6">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Example project card -->
-        <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold mb-2">Autonomous Inventory Tracking Robot</h3>
           <p class="mb-2">Built using ROS2, OpenCV, and AprilTags for real-time inventory scanning in simulated environments.</p>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold mb-2">Rocketry Team Ground Control</h3>
           <p class="mb-2">Designed and tested a PCB-based igniter and camera telemetry system for high-reliability rocket launches.</p>
         </div>
-        <!-- More projects can be added similarly -->
       </div>
     </div>
   </section>
@@ -69,7 +68,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="bg-gray-100 py-16 px-6 text-center">
+  <section id="contact" class="bg-gray-100 dark:bg-gray-800 py-16 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
     <div class="space-x-6">
       <a href="mailto:devagyabudhiraja2015@gmail.com" class="text-blue-500 underline">Email</a>
@@ -101,6 +100,19 @@
       renderer.render(scene, camera);
     };
     animate();
+  </script>
+
+  <!-- Dark Mode Script -->
+  <script>
+    function toggleDarkMode() {
+      const body = document.getElementById('body');
+      body.classList.toggle('dark');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    }
+    window.onload = () => {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') document.getElementById('body').classList.add('dark');
+    }
   </script>
 
 </body>
