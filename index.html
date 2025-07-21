@@ -1,10 +1,107 @@
+<!-- devagyabudhiraja.com: Aesthetic Portfolio Starter -->
+<!-- Tech: HTML, TailwindCSS, JS, Three.js -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Devagya Budhiraja</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+  </style>
 </head>
-<body>
-  <h1>Hi, I'm Devagya 👋</h1>
-  <p>This is my personal website hosted using GitHub Pages and Namecheap.</p>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between">
+      <div class="text-xl font-bold">Devagya</div>
+      <div class="space-x-6">
+        <a href="#about" class="hover:text-blue-500">About</a>
+        <a href="#projects" class="hover:text-blue-500">Projects</a>
+        <a href="#resume" class="hover:text-blue-500">Resume</a>
+        <a href="#contact" class="hover:text-blue-500">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center pt-24">
+    <h1 class="text-5xl font-extrabold mb-4">Hi, I'm Devagya Budhiraja 👋</h1>
+    <p class="text-xl max-w-xl mb-8">A Mechatronics Engineer passionate about robotics, AI, and embedded systems. Turning code into motion and ideas into projects.</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p class="text-lg">I'm a Mechatronics Engineering student at the University of Sydney with deep interests in robotics, embedded systems, and real-time automation. I’ve worked on rover navigation, rocket telemetry, autonomous inventory bots, and more.</p>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="bg-gray-100 py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Example project card -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Autonomous Inventory Tracking Robot</h3>
+          <p class="mb-2">Built using ROS2, OpenCV, and AprilTags for real-time inventory scanning in simulated environments.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Rocketry Team Ground Control</h3>
+          <p class="mb-2">Designed and tested a PCB-based igniter and camera telemetry system for high-reliability rocket launches.</p>
+        </div>
+        <!-- More projects can be added similarly -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold mb-6">Resume & Portfolio</h2>
+    <div class="space-x-6">
+      <a href="/assets/DEVAGYA_BUDHIRAJA_RESUME.pdf" class="text-blue-600 underline">Download Resume</a>
+      <a href="/assets/Portfolio_Devagya.pdf" class="text-blue-600 underline">View Portfolio</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-gray-100 py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+    <div class="space-x-6">
+      <a href="mailto:devagyabudhiraja2015@gmail.com" class="text-blue-500 underline">Email</a>
+      <a href="https://github.com/Devagya-Budhiraja" class="text-blue-500 underline">GitHub</a>
+      <a href="https://linkedin.com/in/devagya-budhiraja-8372ad942" class="text-blue-500 underline">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Three.js Script -->
+  <script type="module">
+    import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    const geometry = new THREE.IcosahedronGeometry(2, 1);
+    const material = new THREE.MeshStandardMaterial({ color: 0x2272FF, wireframe: true });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(10, 10, 10);
+    scene.add(light);
+    camera.position.z = 5;
+    const animate = function () {
+      requestAnimationFrame(animate);
+      mesh.rotation.x += 0.005;
+      mesh.rotation.y += 0.007;
+      renderer.render(scene, camera);
+    };
+    animate();
+  </script>
+
 </body>
 </html>
