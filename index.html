@@ -1,83 +1,119 @@
+<!-- devagyabudhiraja.com: Aesthetic Portfolio with Dark Mode -->
+<!-- Tech: HTML, TailwindCSS, JS, Three.js -->
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Devagya Budhiraja</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  </head>
-  <body class="bg-gradient-to-b from-neutral-950 to-neutral-900 text-white font-sans">
-    <!-- Navbar -->
-    <header class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-md shadow-md">
-      <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 class="text-2xl font-bold tracking-tight">Devagya Budhiraja</h1>
-        <ul class="hidden md:flex space-x-6 text-lg">
-          <li><a href="#about" class="hover:text-teal-400 transition">About</a></li>
-          <li><a href="#projects" class="hover:text-teal-400 transition">Projects</a></li>
-          <li><a href="#contact" class="hover:text-teal-400 transition">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devagya Budhiraja</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+  </style>
+</head>
+<body id="body" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col items-center justify-center text-center pt-32 px-4">
-      <lottie-player
-        src="https://assets5.lottiefiles.com/packages/lf20_jtbfg2nb.json"
-        background="transparent"
-        speed="1"
-        style="width: 200px; height: 200px"
-        loop
-        autoplay
-      ></lottie-player>
-      <div class="space-y-4">
-        <h2 class="text-4xl md:text-6xl font-extrabold">Hi, I'm <span class="text-teal-400">Devagya</span></h2>
-        <p class="text-lg md:text-xl max-w-xl mx-auto text-neutral-400">
-          Mechatronics Engineer | Robotics & AI Enthusiast | Crafting immersive digital experiences
-        </p>
-        <div class="space-x-4">
-          <a href="#projects" class="bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-xl font-medium transition">
-            View Projects
-          </a>
-          <a href="/resume.pdf" target="_blank" class="border border-teal-500 hover:bg-teal-500 hover:text-white text-teal-400 px-6 py-3 rounded-xl font-medium transition">
-            Resume
-          </a>
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-bold">Devagya</div>
+      <div class="space-x-6 flex items-center">
+        <a href="#about" class="hover:text-blue-500">About</a>
+        <a href="#projects" class="hover:text-blue-500">Projects</a>
+        <a href="#resume" class="hover:text-blue-500">Resume</a>
+        <a href="#contact" class="hover:text-blue-500">Contact</a>
+        <button onclick="toggleDarkMode()" class="text-sm px-3 py-1 rounded bg-gray-200 dark:bg-gray-700 dark:text-white">Toggle Mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center pt-24">
+    <h1 class="text-5xl font-extrabold mb-4">Hi, I'm Devagya Budhiraja 👋</h1>
+    <p class="text-xl max-w-xl mb-8">A Mechatronics Engineer passionate about robotics, AI, and embedded systems. Turning code into motion and ideas into projects.</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p class="text-lg">I'm a Mechatronics Engineering student at the University of Sydney with deep interests in robotics, embedded systems, and real-time automation. I’ve worked on rover navigation, rocket telemetry, autonomous inventory bots, and more.</p>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="bg-gray-100 dark:bg-gray-800 py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Autonomous Inventory Tracking Robot</h3>
+          <p class="mb-2">Built using ROS2, OpenCV, and AprilTags for real-time inventory scanning in simulated environments.</p>
+        </div>
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Rocketry Team Ground Control</h3>
+          <p class="mb-2">Designed and tested a PCB-based igniter and camera telemetry system for high-reliability rocket launches.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 px-6 max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold mb-6 border-b border-neutral-700 pb-2">About Me</h3>
-      <p class="text-neutral-300 leading-relaxed">
-        I'm a mechatronics engineering student passionate about robotics, AI, and embedded systems. With a strong coding background and a love for learning, I enjoy building both intelligent software and interactive physical systems. This website is a personal space to share my projects, resume, and creative journey.
-      </p>
-    </section>
+  <!-- Resume -->
+  <section id="resume" class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold mb-6">Resume & Portfolio</h2>
+    <div class="space-x-6">
+      <a href="/assets/DEVAGYA_BUDHIRAJA_RESUME.pdf" class="text-blue-600 underline">Download Resume</a>
+      <a href="/assets/Portfolio_Devagya.pdf" class="text-blue-600 underline">View Portfolio</a>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 max-w-7xl mx-auto bg-neutral-900 rounded-t-3xl">
-      <h3 class="text-3xl font-bold mb-10 border-b border-neutral-700 pb-2">Projects</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Example Project Card -->
-        <div class="bg-gradient-to-tr from-neutral-800 to-neutral-700 p-6 rounded-xl shadow-lg hover:shadow-teal-500/30 transition">
-          <h4 class="text-xl font-semibold text-teal-400 mb-2">Smart Wash System</h4>
-          <p class="text-neutral-300 mb-3">Modular Arduino-based washing machine with GUI-controlled spin/wash cycles and feedback-based motor regulation.</p>
-          <a href="https://github.com/Devagya-Budhiraja" target="_blank" class="text-teal-300 hover:underline">View on GitHub</a>
-        </div>
-        <!-- Add more project cards here -->
-      </div>
-    </section>
+  <!-- Contact -->
+  <section id="contact" class="bg-gray-100 dark:bg-gray-800 py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+    <div class="space-x-6">
+      <a href="mailto:devagyabudhiraja2015@gmail.com" class="text-blue-500 underline">Email</a>
+      <a href="https://github.com/Devagya-Budhiraja" class="text-blue-500 underline">GitHub</a>
+      <a href="https://linkedin.com/in/devagya-budhiraja-8372ad942" class="text-blue-500 underline">LinkedIn</a>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold mb-6 border-b border-neutral-700 pb-2">Contact</h3>
-      <p class="text-neutral-300">Email: <a href="mailto:youremail@example.com" class="text-teal-400 hover:underline">youremail@example.com</a></p>
-      <p class="text-neutral-300">GitHub: <a href="https://github.com/Devagya-Budhiraja" class="text-teal-400 hover:underline">Devagya-Budhiraja</a></p>
-      <p class="text-neutral-300">LinkedIn: <a href="https://linkedin.com/in/devagyabudhiraja" class="text-teal-400 hover:underline">devagyabudhiraja</a></p>
-    </section>
+  <!-- Three.js Script -->
+  <script type="module">
+    import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    const geometry = new THREE.IcosahedronGeometry(2, 1);
+    const material = new THREE.MeshStandardMaterial({ color: 0x2272FF, wireframe: true });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(10, 10, 10);
+    scene.add(light);
+    camera.position.z = 5;
+    const animate = function () {
+      requestAnimationFrame(animate);
+      mesh.rotation.x += 0.005;
+      mesh.rotation.y += 0.007;
+      renderer.render(scene, camera);
+    };
+    animate();
+  </script>
 
-    <footer class="text-center py-6 text-sm text-neutral-500 border-t border-neutral-800">
-      &copy; 2025 Devagya Budhiraja. All rights reserved.
-    </footer>
-  </body>
+  <!-- Dark Mode Script -->
+  <script>
+    function toggleDarkMode() {
+      const body = document.getElementById('body');
+      body.classList.toggle('dark');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    }
+    window.onload = () => {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') document.getElementById('body').classList.add('dark');
+    }
+  </script>
+
+</body>
 </html>
