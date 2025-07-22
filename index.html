@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Devagya Budhiraja</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <script type="module" src="main.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
-  <body class="bg-neutral-950 text-white font-sans">
+  <body class="bg-gradient-to-b from-neutral-950 to-neutral-900 text-white font-sans">
     <!-- Navbar -->
     <header class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-md shadow-md">
       <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -22,7 +21,15 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center text-center pt-32">
+    <section class="min-h-screen flex flex-col items-center justify-center text-center pt-32 px-4">
+      <lottie-player
+        src="https://assets5.lottiefiles.com/packages/lf20_jtbfg2nb.json"
+        background="transparent"
+        speed="1"
+        style="width: 200px; height: 200px"
+        loop
+        autoplay
+      ></lottie-player>
       <div class="space-y-4">
         <h2 class="text-4xl md:text-6xl font-extrabold">Hi, I'm <span class="text-teal-400">Devagya</span></h2>
         <p class="text-lg md:text-xl max-w-xl mx-auto text-neutral-400">
@@ -50,9 +57,9 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-6 max-w-7xl mx-auto bg-neutral-900 rounded-t-3xl">
       <h3 class="text-3xl font-bold mb-10 border-b border-neutral-700 pb-2">Projects</h3>
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Example Project Card -->
-        <div class="bg-neutral-800 p-6 rounded-xl shadow hover:shadow-teal-500/30 transition">
+        <div class="bg-gradient-to-tr from-neutral-800 to-neutral-700 p-6 rounded-xl shadow-lg hover:shadow-teal-500/30 transition">
           <h4 class="text-xl font-semibold text-teal-400 mb-2">Smart Wash System</h4>
           <p class="text-neutral-300 mb-3">Modular Arduino-based washing machine with GUI-controlled spin/wash cycles and feedback-based motor regulation.</p>
           <a href="https://github.com/Devagya-Budhiraja" target="_blank" class="text-teal-300 hover:underline">View on GitHub</a>
